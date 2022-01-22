@@ -1,0 +1,40 @@
+﻿<Window x:Class="Client.Main"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="HTTP" Height="650" Width="400" MinWidth="350" MinHeight="500"
+        WindowStartupLocation="CenterScreen"
+        Icon="/Resources/Icon.ico">
+    <Grid>
+        <Label Content="Host:" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Name="host_label"/>
+        <TextBox Margin="10,23,10,0" Text="" TextWrapping="Wrap" Height="18" VerticalAlignment="Top" Name="host_textbox"/>
+        <Label Content="Path:" HorizontalAlignment="Left" Margin="5,44,0,0" VerticalAlignment="Top" Name="path_label"/>
+        <TextBox Margin="10,67,10,0" Text="" TextWrapping="Wrap" Height="18" VerticalAlignment="Top" Name="path_textbox"/>
+        <Label Content="Request types:" HorizontalAlignment="Left" Margin="5,87,0,0" VerticalAlignment="Top" Name="request_type_label"/>
+        <ComboBox Margin="10,112,10,0" VerticalAlignment="Top" Cursor="Hand" Name="request_type_combobox" >
+            <ComboBoxItem Content="GET" IsSelected="True" Name="get_item" Selected="item_selected"/>
+            <ComboBoxItem Content="HEAD" Name="head_item" Selected="item_selected"/>
+            <ComboBoxItem Content="POST" Name="post_item" Selected="post_selected"/>
+        </ComboBox>
+        <Label Content="Request body:" HorizontalAlignment="Left" Margin="5,136,0,0" VerticalAlignment="Top" Name="request_body_label"/>
+        <RichTextBox Margin="10,159,10,0" Height="70" VerticalAlignment="Top" IsReadOnly="True" Name="request_body_richtextbox">
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text=""/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+        <Button Content="Send request" Margin="10,235,10,0" Height="20" VerticalAlignment="Top" Cursor="Hand" Name="send_request_button" Click="send_request_button_click"/>
+        <Label Content="Log:" HorizontalAlignment="Left" Margin="5,255,0,0" VerticalAlignment="Top" Name="log_label"/>
+        <RichTextBox Margin="10,279,10,35" IsReadOnly="True" VerticalScrollBarVisibility="Auto" Block.LineHeight="1" Name="log_richtextbox">
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text=""/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+        <Button Content="Clear" Margin="0,0,10,10" HorizontalAlignment="Right" Width="100" Height="20" VerticalAlignment="Bottom" Cursor="Hand" Name="clear_log_button" Click="clear_log_button_click"/>
+    </Grid>
+</Window>
